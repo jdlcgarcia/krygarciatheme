@@ -13,19 +13,22 @@
     </section>
     <nav>
         <img id="burger" src="<?php bloginfo('template_url'); ?>/res/burger.png" alt="">
+        <?php 
+        wp_nav_menu( 
+            array( 
+                'theme_location' => 'header-menu',
+                'container' => 'ul',
+            ) 
+        ); 
+        ?>
         
-        <ul class="menu">
-            <li>Home</li>
-            <li>Illustration</li>
-            <li>blabla</li>
-            <li>blabla</li>
-            <li>blabla</li>
-            <li>blabla</li>
-        </ul>
-        <ul class="social">
-            <li><img src="<?php bloginfo('template_url'); ?>/res/instagram-16-black.png" alt=""></li>
-            <li><img src="<?php bloginfo('template_url'); ?>/res/deviantart-16-black.png" alt=""></li>
-            <li><img src="<?php bloginfo('template_url'); ?>/res/facebook-16-black.png" alt=""></li>
-            <li><img src="<?php bloginfo('template_url'); ?>/res/tumblr-16-black.png" alt=""></li>
-        </ul>
+        <?php 
+        wp_nav_menu( 
+            array( 
+                'theme_location' => 'social-menu',
+                'container' => 'ul',
+                'menu_class' => 'social'
+            ) 
+        ); 
+        ?>
     </nav>
