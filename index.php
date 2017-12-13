@@ -1,43 +1,22 @@
 <?php get_header(); ?>
     <section class="content">
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-
-
         
+    <?php
+    if (false == have_posts()) {
+    } else {
+        while (have_posts()) {
+            the_post();
+            ?>
+            <article>
+                <h1><?php the_title(); ?></h1>
+                <span class="subtitle"><?php the_time('Y.m.D') ?></span>
+                <?php the_post_thumbnail(); ?>
+                <p class="postContent"><?php echo get_the_excerpt(); ?></p>
+                <a class="readMore" href="<?php the_permalink(); ?>">Read more</a>
+            </article>
+            <?php
+        }
+    }
+    ?>       
     </section>
 <?php get_footer(); ?>
