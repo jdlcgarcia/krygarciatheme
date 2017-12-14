@@ -23,7 +23,6 @@ function adjustBrightness($hex, $steps)
 
 function sidebar_widgets_init()
 {
-
     register_sidebar(array(
         'name'          => 'Blog right sidebar',
         'id'            => 'blog_right',
@@ -33,3 +32,16 @@ function sidebar_widgets_init()
         'after_title'   => false,
     ));
 }
+
+add_filter('get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+    } elseif (is_month()) {
+        $title = single_month_title(' ', false);
+    }
+    return $title;
+});

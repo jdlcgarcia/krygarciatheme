@@ -73,6 +73,10 @@ nav ul.social img {
 	width: 30px;
 }
 
+section.pageInfo {
+	margin-bottom: 50px;
+}
+
 
 div.container {
 	display: flex;
