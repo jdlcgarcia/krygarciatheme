@@ -77,11 +77,16 @@ nav ul.social img {
 div.container {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
 	align-items: flex-start;
 	text-align: center;
 	justify-content: space-between;
 	max-width: 1070px;
+} 
+
+div.container.home {
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
 } 
 
 section.content {
@@ -89,7 +94,7 @@ section.content {
 }
 
 div.container .category {
-	max-width: 250px;
+	max-width: 270px;
 }
 
 div.container .category img {
@@ -153,8 +158,10 @@ aside .widget {
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
+	
 	div.container {
-		width: 250px;
+		width: 100%;
+		flex-direction: column;
 	} 
 	section.logo img {
 		width: 100%;
@@ -201,6 +208,18 @@ aside .widget {
 
 	nav ul.menu li:hover {
 		background-color: rgba(0,0,0,0.04);
+	}
+
+	div.container .category {
+		max-width: 100%;
+	}
+
+	div.container section.content {
+		width: 100%;
+	}
+
+	aside {
+		width: 100%;
 	}
 }
 

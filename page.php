@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-    <section class="content">
+<div class="container home">
+    
         <div class="category">
             <a href="#">
                 <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
@@ -39,5 +40,5 @@
 
 
         
-    </section>
+</div>
 <?php get_footer(); ?>
