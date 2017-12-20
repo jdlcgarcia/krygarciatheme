@@ -45,3 +45,55 @@ add_filter('get_the_archive_title', function ($title) {
     }
     return $title;
 });
+
+// Register Custom Taxonomy
+function custom_taxonomy()
+{
+    $labels = array(
+        'name'                       => _x('Galerías', 'Taxonomy General Name', 'text_domain'),
+        'singular_name'              => _x('Galería', 'Taxonomy Singular Name', 'text_domain'),
+        'menu_name'                  => __('Galerías', 'text_domain')
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => false,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy('galeria', array( 'imagen' ), $args);
+}
+add_action('init', 'custom_taxonomy', 0);
+
+
+// Register Custom Post Type
+function imagen()
+{
+    $labels = array(
+        'name'                  => _x('Imágenes', 'Post Type General Name', 'text_domain'),
+        'singular_name'         => _x('Imagen', 'Post Type Singular Name', 'text_domain'),
+    );
+    $args = array(
+        'label'                 => __('Imagen', 'text_domain'),
+        'description'           => __('Imagen desc', 'text_domain'),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'thumbnail' ),
+        'taxonomies'            => array( 'galeria' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type('imagen', $args);
+}
+add_action('init', 'imagen', 0);
