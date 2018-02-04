@@ -28,8 +28,8 @@ function sidebar_widgets_init()
         'id'            => 'blog_right',
         'before_widget' => '<div class="widget">',
         'after_widget'  => '</div>',
-        'before_title'  => false,
-        'after_title'   => false,
+        'before_title'  => '<div class="title">',
+        'after_title'   => '</div>',
     ));
 }
 

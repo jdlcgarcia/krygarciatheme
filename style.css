@@ -10,7 +10,8 @@ License URI: https://opensource.org/licenses/MIT
 Tags: design, portfolio, illustration
 Text Domain: krygarcia
 */
-
+@import url(http://fonts.googleapis.com/css?family=Coustard);
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 html {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
@@ -34,16 +35,45 @@ body {
 	align-items: center;
   	justify-content: center;
 }
+ul {
+	list-style: none;
+}
 
 section.logo {
 	display: flex;
 	justify-content: space-around;
-	margin-bottom: 75px;
 }
 
 section.logo img {
-	max-width: 600px;
-	height: auto;
+	width: 100%;
+	height: 100%;
+}
+
+
+#menu-social {
+    display: flex;
+    justify-content: flex-end;
+    width:90%;
+}
+
+#menu-social li a{
+    width:20px;
+    height:20px;
+    margin-left: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+.twitter a{
+    background: url('res/twitter.png');
+}
+
+.facebook a{
+    background: url('res/facebook.png');
+}
+
+.linkedin a{
+    background: url('res/linkedin.png');
 }
 
 nav {
@@ -51,17 +81,29 @@ nav {
 	flex-direction: column;
 	width: 90%;
 	align-items: center;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Coustard', serif;
+	font-size: 14px;
+	margin-bottom: 20px;
 }
 
 nav ul {
 	list-style: none;
 	display: flex;
 	justify-content: space-around;
-	margin-bottom: 50px;
 	width: 100%;
 }	
 
 nav ul li {
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: #000;
+	text-transform: uppercase;
 }
 
 nav ul.social {
@@ -84,7 +126,7 @@ div.container {
 	align-items: flex-start;
 	text-align: center;
 	justify-content: space-between;
-	max-width: 1070px;
+	width: 90%;
 } 
 
 div.container.home {
@@ -114,14 +156,34 @@ article {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	background-color: rgba(0,0,0,0.04);
-	padding: 20px 0;
+	background-color: #fff;
+	padding: 20px 20px;
 	align-items: center;
 	margin-bottom: 30px;
+	font-size:1em;
+}
+
+article h2 {
+	width: 100%;
+	text-align: left;
+	font-family: Coustard;
+	font-size: 1.3em;
 }
 
 article span.subtitle {
-	margin-bottom: 20px;
+	width:100%;
+	text-align: left;
+	font-family: Coustard;
+	font-size: 0.8em;
+}
+
+article span.subtitle a{
+	text-decoration: none;
+	color: black;
+}
+
+article span.subtitle a:hover {
+	text-decoration: underline;
 }
 
 article img {
@@ -131,29 +193,42 @@ article img {
 }
 
 article .postContent {
-	text-align:justify;
-	padding: 0 20px;
+	font-family: Raleway;
+	text-align: left;
 	margin-bottom: 20px;
 }
 
 article .readMore {
-	background-color: white;
-	padding: 10px 20px;
 	width: max-content;
+	color: #000;
+	font-family: Raleway;
 }
 
 aside {
 	width: 25%;
+	background-color: #fddd99;
 }
 
 aside .widget {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	background-color: rgba(0,0,0,0.04);
-	padding: 20px 0;
-	align-items: center;
+	padding: 20px 20px;
+	align-items: flex-start;
 	margin-bottom: 30px;
+	font-family:Raleway;
+}
+
+aside .widget a {
+	text-decoration: none;
+	color: black;
+}
+
+aside .widget .title {
+	width:100%;
+	text-align: center;
+	font-family:Coustard;
+	margin-bottom: 10px;
 }
 
 /* Small Devices, Tablets */
@@ -166,10 +241,6 @@ aside .widget {
 	div.container {
 		width: 100%;
 		flex-direction: column;
-	} 
-	section.logo img {
-		width: 100%;
-		height: auto;
 	}
 
 	nav {
