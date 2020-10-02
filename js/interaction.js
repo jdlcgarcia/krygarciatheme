@@ -1,9 +1,13 @@
 jQuery(document).ready(function() {
-	jQuery('#burger').on('click',function(){
-		if (jQuery('.menu').css("display") == "flex") {
-			jQuery('.menu').css("display","none");
+	jQuery('#menu-responsive button').on('click',function(){
+		var status = jQuery(this).attr("status");
+		console.log(status);
+		if (status === "on" || status === "") {
+			jQuery('#menu-responsive button').attr("status", "off");
+			jQuery('#responsive-options').hide();
 		} else {
-			jQuery('.menu').css("display","flex");
+			jQuery('#menu-responsive button').attr("status", "on");
+			jQuery('#responsive-options').show();
 		}
 	});
 });

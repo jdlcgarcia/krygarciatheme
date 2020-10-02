@@ -28,8 +28,8 @@ function sidebar_widgets_init()
         'id'            => 'blog_right',
         'before_widget' => '<div class="widget">',
         'after_widget'  => '</div>',
-        'before_title'  => false,
-        'after_title'   => false,
+        'before_title'  => '<div class="title">',
+        'after_title'   => '</div>',
     ));
 }
 
@@ -45,3 +45,8 @@ add_filter('get_the_archive_title', function ($title) {
     }
     return $title;
 });
+
+function new_excerpt_more($more) {
+  return ' <a class="readMore" href="'.get_permalink( get_the_ID() ).'">Read more</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');

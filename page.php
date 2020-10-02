@@ -1,44 +1,9 @@
 <?php get_header(); ?>
 <div class="container home">
-    
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="#">
-                <img src="<?php bloginfo('template_url'); ?>/res/blank.png" alt="">
-                <p>Titulo</p>
-            </a>
-        </div>
-
-
-        
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+the_content();
+endwhile; else: ?>
+<p>Sorry, no posts matched your criteria.</p>
+<?php endif; ?>       
 </div>
 <?php get_footer(); ?>

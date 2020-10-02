@@ -13,14 +13,32 @@
                 the_post();
                 ?>
                 <article>
-                    <h2><?php the_title(); ?></h2>
-                    <span class="subtitle"><?php the_time('Y.m.D') ?></span>
+                    <h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
+                    <span class="subtitle">
+                        <?php
+                        $year = get_the_time('Y');
+                        $month = get_the_time('m');
+                        $day = get_the_time('d');
+                        ?>
+<a href="<?php echo get_month_link( $year, $month ); ?>"><?php the_time('M') ?></a>
+<a href="<?php echo get_day_link( $year, $month, $day); ?>">
+    <?php the_time('d'); ?></a>,
+<a href="<?php echo get_year_link( $year); ?>"><?php the_time('Y'); ?></a></span>
                     <?php the_post_thumbnail(); ?>
+                    
                     <p class="postContent"><?php echo get_the_excerpt(); ?></p>
-                    <a class="readMore" href="<?php the_permalink(); ?>">Read more</a>
-                </article>
+                    
+                    </article>
                 <?php
+                
             }
+            
+            the_posts_pagination( array(
+				'mid_size'  => 2,
+				'prev_text' => __( 'Newer posts', 'textdomain' ),
+				'next_text' => __( 'Older posts', 'textdomain' ),
+				'screen_reader_text' => ' ',
+			) );
         }
         ?>       
         </section>
